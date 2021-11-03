@@ -28,7 +28,8 @@ local rules = {}
 
 -- return a table of client rules including provided keys / buttons
 function rules.create(clientkeys, clientbuttons)
-   return {
+
+    return {
       -- All clients will match this rule.
       {
          rule = {},
@@ -70,13 +71,7 @@ function rules.create(clientkeys, clientbuttons)
       },
 
       -- Fullscreen clients
-      {
-         rule_any = {
-            class = {
-               "Terraria.bin.x86",
-            },
-         }, properties = {fullscreen = true}
-      },
+
 
       -- "Switch to tag"
       -- These clients make you switch to their tag when they appear
@@ -111,7 +106,7 @@ function rules.create(clientkeys, clientbuttons)
       -- Rofi
       {
          rule_any = {name = {"rofi"}},
-         properties = {maximized = true, ontop = true}
+         properties = {maximized = true, ontop = true, titlebars_enabled = false}
       },
 
       -- File chooser dialog

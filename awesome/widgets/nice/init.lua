@@ -64,13 +64,13 @@ local pixbuf_get_from_window = gdk.pixbuf_get_from_window
 -- => nice
 -- ============================================================
 -- Colors
-local colors = require("nice.colors")
+local colors = require("widgets.nice.colors")
 local color_darken = colors.darken
 local color_lighten = colors.lighten
 local is_contrast_acceptable = colors.is_contrast_acceptable
 local relative_luminance = colors.relative_luminance
 -- Shapes
-local shapes = require("nice.shapes")
+local shapes = require("widgets.nice.shapes")
 local create_corner_top_left = shapes.create_corner_top_left
 local create_edge_left = shapes.create_edge_left
 local create_edge_top_middle = shapes.create_edge_top_middle
@@ -124,21 +124,21 @@ _private.titlebar_items = {
     right = {"maximize", "minimize", "close"},
 }
 _private.context_menu_theme = {
-    bg_focus = "#aed9e0",
-    bg_normal = "#5e6472",
+    bg_focus = beautiful.bg_focus,
+    bg_normal = beautiful.bg_normal,
     border_color = "#00000000",
     border_width = 0,
-    fg_focus = "#242424",
-    fg_normal = "#fefefa",
-    font = "Sans 11",
+    fg_focus = beautiful.fg_focus,
+    fg_normal = beautiful.fg_normal,
+    font = beautiful.titlebar_font,
     height = 27.5,
     width = 250,
 }
 _private.win_shade_enabled = true
 _private.no_titlebar_maximized = false
 _private.mb_move = nice.MB_LEFT
-_private.mb_contextmenu = nice.MB_MIDDLE
-_private.mb_resize = nice.MB_RIGHT
+_private.mb_contextmenu = nice.MB_RIGHT
+_private.mb_resize = nice.MB_MIDDLE
 _private.mb_win_shade_rollup = nice.MB_SCROLL_UP
 _private.mb_win_shade_rolldown = nice.MB_SCROLL_DOWN
 
@@ -174,7 +174,7 @@ _private.sticky_color = beautiful.titlebar_button_sticky
 -- => Saving and loading of color rules
 -- ============================================================
 local table = table
-local t = require("nice.table")
+local t = require("widgets.nice.table")
 table.save = t.save
 table.load = t.load
 
@@ -437,7 +437,7 @@ local function get_titlebar_mouse_bindings(c)
                 end
                 -- TODO: Add client control options as menu entries for options that haven't had their buttons added
                 add_item(
-                    "Redo Window Decorations", function()
+                    "Reload Titlebar", function()
                         c._nice_base_color = get_dominant_color(c)
                         set_color_rule(c, c._nice_base_color)
                         _private.add_window_decorations(c)
@@ -456,7 +456,7 @@ local function get_titlebar_mouse_bindings(c)
                                 return true
                             end, "crosshair")
                     end)
-                add_item("Nevermind...", function() end)
+                add_item("Exit", function() end)
                 if c._nice_right_click_menu then
                     c._nice_right_click_menu:hide()
                 end
