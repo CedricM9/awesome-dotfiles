@@ -8,68 +8,47 @@
 
 ![](/screenshots/pastel.png)
 
-<div align="center">
-    <h3>Mirage Theme</h3>
-</div>
-
-![](/screenshots/mirage.png)
-
 ## Contents ##
 1. [Details](#details)
-2. [Features](#features)
-3. [Dependencies](#dependencies)
-4. [Installation](#installation)
-5. [Folder Structure](#folderStructure)
-6. [Application Theming](#appTheming)
-7. [Keybinds](#keybinds)
-8. [Notes](#notes)
+2. [Dependencies](#dependencies)
+3. [Installation](#installation)
+4. [Folder Structure](#folderStructure)
+5. [Application Theming](#appTheming)
+6. [Keybinds](#keybinds)
+7. [Notes](#notes)
 
 <a name="details"></a>
 ## Details ##
 + **Shell**: ZSH
 + **WM**: awesome
-+ **Theme**: Qogir Dark
 + **Icons**: Tela Dark
 + **Cursor**: xCursor Breeze Light
 + **Terminal**: Alacritty
 
-<a name="features"></a>
-## Features ##
-+ Super lightweight
-+ Easy installation / configuration
-+ Very few dependencies
-+ Exit screen
-+ Locking (via `i3lock`)
-+ Touch screen friendly (I primarily run this on a microsoft surface pro 6)
-+ Automatic dpi / resolution scaling
-  + Note that xft.dpi must be properly assigned in the .Xresources file if you are using a high DPI screen
-+ Supports multi monitor setups!
-  + The top bar appears on every monitor, and the side bar only appears on the main monitor
-+ i3-like keybinds
-+ Very stable: Built off of the awesome 4.3 release, no bleeding edge git versions required here!
-
 <a name="dependencies"></a>
 ## Dependencies ##
-I have made my best effort to reduce the number of dependencies by using the awesome API to its fullest extent, and allowing users to specify their preferred applications via the `rc.lua` file (see [installation section](#installation)). That being said, here are the dependencies:
 
 |Dependency|Description|
 |:----------:|:-------------:|
-|`awesome`|Window manager|
+|`awesome-git`|Window manager (Git version required for non stable Titlebar Dependency|
 |`feh`|Fast image viewer used as wallpaper setting utility|
-|`picom-ibhagwan`|Window compositor, eliminates screen tearing and allows for cool fade effects. **ibhagwan version required for mirage theme**|
+|`picom-ibhagwan`|Window compositor, eliminates screen tearing and allows for cool fade effects**|
 |`rofi`|Application launcher|
 |`imagemagick`|**OPTIONAL BUT NEEDED IF USING A DIFFERENT BACKGROUND**, used in config to generate blurred wallpaper|
 
 ### Optional Dependencies ###
 These will improve the user experience but aren't required:
-**Bear in mind that most of these dependencies come preinstalled on non arch systems. I would recommend reading their descriptions below to determine which ones you need to install. Alternatively, set up my config and install the packages based on what isn't appearing in the top panel.**
-+ `i3lock`: Will be opened when the lock icon is selected in the exit window
-+ `acpi`: Battery managing cli application, used by top bar widget to determine battery status
-+ `bluez`, `bluez-utils`: Bluetooth cli application, used by top bar widget to determine if bluetooth is on
-+ `blueman`: Bluetooth managing application, spawns when the bluetooth top panel icon is clicked
-+ `scrot`: Screenshot tool, which is mapped to the Print Screen key in keys.lua. **If you want to meet this dependency, ensure that the `~/Pictures` folder exists**, otherwise the program will save your screenshots to your home directory
-+ `alsa-utils`: Provides kernel driven sound drivers, which the control of has been mapped to volume keys in keys.lua
-+ `xbacklight`: Controls display brightness, which the control of has been mapped to brightness keys in keys.lua
+
+|Dependency|Description|
+|:----------:|:-------------:|
+|`i3lock`|Will be opened when the lock icon is selected in the exit window|
+|`acpi`|Battery managing cli application, used by top bar widget to determine battery status|
+|`bluez` , `bluez-utils`|Bluetooth cli application, used by top bar widget to determine if bluetooth is on|
+|`blueman`|Bluetooth managing application, spawns when the bluetooth top panel icon is clicked|
+|`scrot`|Screenshot tool, which is mapped to the Print Screen key in keys.lua. **If you want to meet this dependency, ensure that the `~/Pictures` folder exists**, otherwise the program will save your screenshots to your home directory|
+|`deepin-screenshot`|Screenshot tool that allows you to select a portion of the screen|
+|`alsa-utils`|Provides kernel driven sound drivers, which the control of has been mapped to volume keys in keys.lua|
+|`sddm`|Display Manager that displays the login|
 
 ### Fonts You Should Install ###
 + `SF Text`: System font used by macOS, iOS, and watchOS. Used in this config as the WM font. Also used as font for firefox
