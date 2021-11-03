@@ -18,6 +18,7 @@ local atooltip = awful.tooltip
 local abutton = awful.button
 local wibox = require("wibox")
 local get_font_height = require("beautiful").get_font_height
+local beautiful = require("beautiful")
 -- Widgets
 local imagebox = wibox.widget.imagebox
 local textbox = wibox.widget.textbox
@@ -111,16 +112,16 @@ _private.max_width = 0
 _private.max_height = 0
 
 -- Titlebar
-_private.titlebar_height = 38
-_private.titlebar_radius = 9
+_private.titlebar_height = beautiful.titlebar_height
+_private.titlebar_radius = beautiful.titlebar_radius 
 _private.titlebar_color = "#1E1E24"
-_private.titlebar_margin_left = 0
-_private.titlebar_margin_right = 0
-_private.titlebar_font = "Sans 11"
+_private.titlebar_margin_left = 2
+_private.titlebar_margin_right = 2
+_private.titlebar_font = beautiful.titlebar_font
 _private.titlebar_items = {
-    left = {"close", "minimize", "maximize"},
+    left = {"floating"},
     middle = "title",
-    right = {"sticky", "ontop", "floating"},
+    right = {"maximize", "minimize", "close"},
 }
 _private.context_menu_theme = {
     bg_focus = "#aed9e0",
@@ -142,32 +143,32 @@ _private.mb_win_shade_rollup = nice.MB_SCROLL_UP
 _private.mb_win_shade_rolldown = nice.MB_SCROLL_DOWN
 
 -- Titlebar Items
-_private.button_size = 16
-_private.button_margin_horizontal = 5
+_private.button_size = beautiful.titlebar_button_size
+_private.button_margin_horizontal = beautiful.titlebar_button_margin_horizontal
 -- _private.button_margin_vertical
-_private.button_margin_top = 2
+_private.button_margin_top = beautiful.titlebar_button_margin_top
 -- _private.button_margin_bottom = 0
 -- _private.button_margin_left = 0
 -- _private.button_margin_right = 0
 _private.tooltips_enabled = true
 _private.tooltip_messages = {
-    close = "close",
-    minimize = "minimize",
-    maximize_active = "unmaximize",
-    maximize_inactive = "maximize",
-    floating_active = "enable tiling mode",
-    floating_inactive = "enable floating mode",
-    ontop_active = "don't keep above other windows",
-    ontop_inactive = "keep above other windows",
-    sticky_active = "disable sticky mode",
-    sticky_inactive = "enable sticky mode",
+    close = "Close",
+    minimize = "Minimize",
+    maximize_active = "Unmaximize",
+    maximize_inactive = "Maximize",
+    floating_active = "Enable Tiling Mode",
+    floating_inactive = "Enable Floating Mode",
+    ontop_active = "Don't keep above other windows",
+    ontop_inactive = "Keep above other windows",
+    sticky_active = "Disable Sticky Mode",
+    sticky_inactive = "Enable Sticky Mode",
 }
-_private.close_color = "#ee4266"
-_private.minimize_color = "#ffb400"
-_private.maximize_color = "#4CBB17"
-_private.floating_color = "#f6a2ed"
-_private.ontop_color = "#f6a2ed"
-_private.sticky_color = "#f6a2ed"
+_private.close_color = beautiful.titlebar_button_close 
+_private.minimize_color = beautiful.titlebar_button_minimize
+_private.maximize_color = beautiful.titlebar_button_maximize 
+_private.floating_color = beautiful.titlebar_button_floating 
+_private.ontop_color = beautiful.titlebar_button_ontop 
+_private.sticky_color = beautiful.titlebar_button_sticky 
 -- ------------------------------------------------------------
 
 -- => Saving and loading of color rules
@@ -678,12 +679,12 @@ function _private.add_window_decorations(c)
     local corner_top_left_img = create_corner_top_left {
         background_source = background_fill_top,
         color = client_color,
-        height = titlebar_height,
+        height = titlebar_height, 
         radius = _private.titlebar_radius,
-        stroke_offset_inner = 1.5,
-        stroke_width_inner = 1,
-        stroke_offset_outer = 0.5,
-        stroke_width_outer = 1,
+        stroke_offset_inner = 0,
+        stroke_width_inner = 0,
+        stroke_offset_outer = 0,
+        stroke_width_outer = 0,
         stroke_source_inner = gradient(
             stroke_color_inner_top, stroke_color_inner_sides, titlebar_height),
         stroke_source_outer = gradient(
@@ -699,10 +700,10 @@ function _private.add_window_decorations(c)
         height = titlebar_height,
         stroke_color_inner = stroke_color_inner_top,
         stroke_color_outer = stroke_color_outer_top,
-        stroke_offset_inner = 1.25,
-        stroke_offset_outer = 0.5,
-        stroke_width_inner = 2,
-        stroke_width_outer = 1,
+        stroke_offset_inner = 0,
+        stroke_offset_outer = 0,
+        stroke_width_inner = 0,
+        stroke_width_outer = 0,
         width = _private.max_width,
     }
     -- Create the titlebar
@@ -760,7 +761,7 @@ function _private.add_window_decorations(c)
     local left_side_border = awful.titlebar(
                                  c, {
             position = "left",
-            size = 2,
+            size = 0,
             bg = client_color,
             widget = wcontainer_background,
         })
@@ -772,7 +773,7 @@ function _private.add_window_decorations(c)
     local right_side_border = awful.titlebar(
                                   c, {
             position = "right",
-            size = 2,
+            size = 0,
             bg = client_color,
             widget = wcontainer_background,
         })
@@ -815,7 +816,7 @@ function _private.add_window_decorations(c)
         }, "vertical")
     local bottom = awful.titlebar(
                        c, {
-            size = bottom_edge_height,
+            size = 0,
             bg = "transparent",
             position = "bottom",
         })

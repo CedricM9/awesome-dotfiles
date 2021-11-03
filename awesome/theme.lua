@@ -78,7 +78,26 @@ theme.top_panel_height = dpi(26)
 -- Notification Sizing
 theme.notification_max_width = dpi(350)
 
+-- ===================================================================
+-- Titlebar
+-- ===================================================================
+theme.titlebar_height = dpi(32)
+theme.titlebar_radius = 9
+theme.titlebar_font = theme.title_font
 
+
+theme.titlebar_button_size = dpi(14)
+theme.titlebar_button_margin_horizontal = 4
+theme.titlebar_button_margin_top = 0
+
+theme.titlebar_button_close = "#ee4266"
+theme.titlebar_button_minimize = "#ffb400"
+theme.titlebar_button_maximize = "#4CBB17"
+theme.titlebar_button_floating = "#f6a2ed"
+theme.titlebar_button_ontop = "#f6a2ed"
+theme.titlebar_button_sticky = "#f6a2ed"
+
+theme.titlebar_tooltips_enabled = true
 -- ===================================================================
 -- Icons
 -- ===================================================================
