@@ -40,7 +40,8 @@ function rules.create(clientkeys, clientbuttons)
             keys = clientkeys,
             buttons = clientbuttons,
             screen = awful.screen.preferred,
-            placement = awful.placement.centered
+            placement = awful.placement.centered,
+            titlebars_enabled = true
 
          },
       },
