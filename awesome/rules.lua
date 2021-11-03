@@ -28,30 +28,11 @@ local rules = {}
 
 -- return a table of client rules including provided keys / buttons
 function rules.create(clientkeys, clientbuttons)
-   local rofi_rule = {}
-
-   if beautiful.name == "mirage" then
-      rofi_rule = {
-         rule_any = {name = {"rofi"}},
-         properties = {floating = true, titlebars_enabled = false},
-         callback = function(c)
-            if beautiful.name == "mirage" then
-               awful.placement.left(c)
-            end
-         end
-      }
-   else rofi_rule = {
-         rule_any = {name = {"rofi"}},
-         properties = {maximized = true, floating = true, titlebars_enabled = false},
-      }
-   end
-
    return {
       -- All clients will match this rule.
       {
          rule = {},
          properties = {
-            titlebars_enabled = beautiful.titlebars_enabled,
             border_width = beautiful.border_width,
             border_color = beautiful.border_normal,
             focus = awful.client.focus.filter,
@@ -60,6 +41,7 @@ function rules.create(clientkeys, clientbuttons)
             buttons = clientbuttons,
             screen = awful.screen.preferred,
             placement = awful.placement.centered
+
          },
       },
       -- Floating clients.
@@ -70,7 +52,7 @@ function rules.create(clientkeys, clientbuttons)
                "copyq",
             },
             class = {
-               "Nm-connection-editor"
+               "Nm-connection-editor",
             },
             name = {
                "Event Tester",
@@ -125,8 +107,11 @@ function rules.create(clientkeys, clientbuttons)
          end
       },
 
-      -- rofi rule determined above
-      rofi_rule,
+      -- Rofi
+      {
+         rule_any = {name = {"rofi"}},
+         properties = {maximized = true, ontop = true}
+      },
 
       -- File chooser dialog
       {

@@ -71,18 +71,10 @@ local function list_update(w, buttons, label, data, objects)
       else
          ib = wibox.widget.imagebox()
          tb = wibox.widget.textbox()
-         cb = clickable_container(wibox.container.margin(wibox.widget.imagebox(ICON_DIR .. "close.svg"), dpi(6), dpi(6), dpi(6), dpi(6)))
-         cb.shape = gears.shape.circle
-         cbm = wibox.container.margin(cb, dpi(4), dpi(8), dpi(2), dpi(2)) -- 4, 8 ,12 ,12 -- close button
-         cbm:buttons(gears.table.join(awful.button({}, 1, nil,
-            function()
-               o.kill(o)
-            end
-         )))
          bg_clickable = clickable_container()
          bgb = wibox.container.background()
-         tbm = wibox.container.margin(tb, dpi(4), dpi(4))
-         ibm = wibox.container.margin(ib, dpi(6), dpi(6), dpi(6), dpi(6)) -- 12 is default top and bottom margin --app icon
+         tbm = wibox.container.margin(tb, dpi(0), dpi(0))
+         ibm = wibox.container.margin(ib, dpi(8), dpi(8), dpi(8), dpi(8)) -- 12 is default top and bottom margin --app icon
          l = wibox.layout.fixed.horizontal()
          ll = wibox.layout.fixed.horizontal()
 
@@ -91,7 +83,6 @@ local function list_update(w, buttons, label, data, objects)
          l:add(ibm)
          l:add(tbm)
          ll:add(l)
-         ll:add(cbm)
 
          bg_clickable:set_widget(ll)
          -- And all of this gets a background
@@ -119,34 +110,17 @@ local function list_update(w, buttons, label, data, objects)
 
       local text, bg, bg_image, icon, args = label(o, tb)
       args = args or {}
-
-      -- The text might be invalid, so use pcall.
-      if text == nil or text == '' then
-         tbm:set_margins(0)
-      else
-          -- truncate when title is too long
-         local text_only = text:match('>(.-)<')
-         if (text_only:len() > 24) then
-            text = text:gsub('>(.-)<', '>' .. text_only:sub(1, 21) .. '...<')
-            tt:set_text(text_only)
-            tt:add_to_object(tb)
-         else
-            tt:remove_from_object(tb)
-         end
-         if not tb:set_markup_silently(text) then
-            tb:set_markup('<i>&lt;Invalid text&gt;</i>')
-         end
-      end
+      
       bgb:set_bg(bg)
       if type(bg_image) == 'function' then
-         -- TODO: Why does this pass nil as an argument?
          bg_image = bg_image(tb, o, nil, objects, i)
       end
       bgb:set_bgimage(bg_image)
          if icon then
             ib.image = icon
          else
-            ibm:set_margins(0)
+	    --TODO Create Default Icon and Change below	 
+	    ib.image = ICON_DIR .. "volume.png"
          end
 
       bgb.shape = args.shape
@@ -183,6 +157,12 @@ local tasklist_buttons = awful.util.table.join(
       end
    ),
    awful.button({}, 2,
+      function(c)
+	 c.maximized = not c.maximized
+	 c:raise()
+      end
+   ),
+   awful.button({}, 3,
       function(c)
          c.kill(c)
       end

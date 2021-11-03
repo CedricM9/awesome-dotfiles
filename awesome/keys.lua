@@ -17,13 +17,17 @@ local naughty = require("naughty")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 
+-- Default Applications
+local apps = require("apps").default
+
+local treetile = require("treetile")
+
 -- Define mod keys
 local modkey = "Mod4"
 local altkey = "Mod1"
 
 -- define module table
 local keys = {}
-
 
 -- ===================================================================
 -- Movement Functions (Called by some keybinds)
@@ -149,6 +153,34 @@ keys.globalkeys = gears.table.join(
       end,
       {description = "application launcher", group = "launcher"}
    ),
+ -- Spawn Ranger
+   awful.key({modkey}, "r",
+      function()
+         awful.spawn("alacritty -e ranger")
+      end,
+      {description = "open Ranger", group = "launcher"}
+   ),
+
+   awful.key({modkey}, "t",
+        function()
+            awful.spawn("nautilus")
+        end,
+        {description = "Open File Manager", group = "launcher"}
+    ),
+
+    awful.key({modkey}, "n",
+        function()
+            awful.spawn("firefox")
+        end,
+        {description = "Open Firefox", group = "launcher"}
+    ),
+
+    awful.key({modkey}, "b",
+        function()
+            awful.spawn("rhythmbox")
+        end,
+        {description = "Open Rhythmbox", group = "launcher"}
+    ),
 
    -- =========================================
    -- FUNCTION KEYS
@@ -215,6 +247,11 @@ keys.globalkeys = gears.table.join(
          awful.util.spawn(apps.screenshot, false)
       end
    ),
+   awful.key({modkey}, "o",
+        function()
+            awful.spawn("deepin-screenshot")
+        end
+    ),
 
    -- =========================================
    -- RELOAD / QUIT AWESOME
@@ -230,9 +267,9 @@ keys.globalkeys = gears.table.join(
    awful.key({modkey}, "Escape",
       function()
          -- emit signal to show the exit screen
-         awesome.emit_signal("show_exit_screen")
+         awful.spawn(apps.lock)
       end,
-      {description = "toggle exit screen", group = "hotkeys"}
+      {description = "toggle lock", group = "launcher"}
    ),
 
    awful.key({}, "XF86PowerOff",
@@ -368,12 +405,22 @@ keys.globalkeys = gears.table.join(
    ),
    awful.key({modkey, "Control"}, "h",
       function(c)
-         resize_client(client.focus, "left")
+         local c = client.focus
+         if awful.layout.get(c.screen).name == "treetile" then
+             treetile.resize_client(-0.9)
+         else
+             resize_client(client.focus, "left")
+         end
       end
    ),
    awful.key({modkey, "Control"}, "l",
       function(c)
-         resize_client(client.focus, "right")
+         local c = client.focus
+         if awful.layout.get(c.screen).name == "treetile" then
+             treetile.resize_client(0.9)
+         else
+             resize_client(client.focus, "right")
+         end
       end
    ),
 
@@ -475,7 +522,7 @@ keys.globalkeys = gears.table.join(
    -- =========================================
 
    -- restore minimized client
-   awful.key({modkey, "Shift"}, "n",
+   awful.key({modkey, "Shift"}, "p",
       function()
          local c = awful.client.restore()
          -- Focus restored client
@@ -554,7 +601,7 @@ keys.clientkeys = gears.table.join(
    ),
 
    -- Minimize
-   awful.key({modkey}, "n",
+   awful.key({modkey}, "p",
       function(c)
          c.minimized = true
       end,

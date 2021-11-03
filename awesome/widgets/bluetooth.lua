@@ -9,7 +9,7 @@
 -- Initialization
 -- ===================================================================
 
-
+local beautiful = require("beautiful")
 local awful = require("awful")
 local watch = require("awful.widget.watch")
 local wibox = require("wibox")
@@ -19,6 +19,8 @@ local dpi = require("beautiful").xresources.apply_dpi
 
 local PATH_TO_ICONS = os.getenv("HOME") .. "/.config/awesome/icons/bluetooth/"
 local checker
+
+local icon_size = beautiful.icon_size
 
 
 -- ===================================================================
@@ -35,7 +37,7 @@ local widget = wibox.widget {
    layout = wibox.layout.align.horizontal
 }
 
-local widget_button = clickable_container(wibox.container.margin(widget, dpi(7), dpi(7), dpi(7), dpi(7)))
+local widget_button = clickable_container(wibox.container.margin(widget, icon_size, icon_size, icon_size, icon_size))
 widget_button:buttons(
    gears.table.join(
       awful.button({}, 1, nil,
@@ -73,7 +75,7 @@ watch("bluetoothctl --monitor list", 5,
       else
          widget_icon_name = "bluetooth-off"
       end
-      widget.icon:set_image(PATH_TO_ICONS .. widget_icon_name .. ".svg")
+      widget.icon:set_image(PATH_TO_ICONS .. widget_icon_name .. ".png")
       collectgarbage("collect")
    end,
    widget

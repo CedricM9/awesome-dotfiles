@@ -16,8 +16,9 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local clickable_container = require("widgets.clickable-container")
 
+local apps = require("apps").default
 local dpi = beautiful.xresources.apply_dpi
-local ICON_DIR = gears.filesystem.get_configuration_dir() .. "/icons/exit-screen/" .. beautiful.name .. "/"
+local ICON_DIR = gears.filesystem.get_configuration_dir() .. "/icons/exit-screen/"
 
 -- define module table
 local exit_screen = {}
@@ -179,6 +180,7 @@ exit_screen.widget = wibox({
    visible = false,
    ontop = true,
    type = "splash",
+   bgimage = "/home/cedric/.config/awesome/wallpaper/blurredWallpaper2.png",
    height = screen_geometry.height,
    width = screen_geometry.width
 })

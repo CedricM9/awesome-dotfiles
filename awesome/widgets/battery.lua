@@ -20,7 +20,7 @@
 -- Initialization
 -- ===================================================================
 
-
+local beautiful = require("beautiful")
 local awful = require("awful")
 local watch = require("awful.widget.watch")
 local wibox = require("wibox")
@@ -45,12 +45,12 @@ local widget = wibox.widget {
    layout = wibox.layout.fixed.horizontal
 }
 
-local widget_button = clickable_container(wibox.container.margin(widget, dpi(7), dpi(7), dpi(7), dpi(7)))
+local widget_button = clickable_container(wibox.container.margin(widget, beautiful.icon_size, beautiful.icon_size, beautiful.icon_size, beautiful.icon_size))
 widget_button:buttons(
    gears.table.join(
       awful.button({}, 1, nil,
          function()
-            awful.spawn(apps.power_manager)
+            awful.spawn("xfce4-power-manager-settings")
          end
       )
    )

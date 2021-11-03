@@ -16,6 +16,9 @@ local dpi = require('beautiful').xresources.apply_dpi
 local capi = {button = button}
 local clickable_container = require('widgets.clickable-container')
 local modkey = require('keys').modkey
+local beautiful = require('beautiful')
+
+local icon_size = beautiful.icon_size
 
 -- define module table
 local tag_list = {}
@@ -53,6 +56,7 @@ local function create_buttons(buttons, object)
    end
 end
 
+
 -- Update the taglist
 local function list_update(w, buttons, label, data, objects)
    -- update the widgets, creating them if needed
@@ -67,12 +71,11 @@ local function list_update(w, buttons, label, data, objects)
          tbm = cache.tbm
          ibm = cache.ibm
       else
-         local icondpi = 10
          ib = wibox.widget.imagebox()
          tb = wibox.widget.textbox()
          bgb = wibox.container.background()
          tbm = wibox.container.margin(tb, dpi(4), dpi(16))
-         ibm = wibox.container.margin(ib, dpi(icondpi), dpi(icondpi), dpi(icondpi), dpi(icondpi))
+         ibm = wibox.container.margin(ib, icon_size, icon_size, icon_size, icon_size)
          l = wibox.layout.fixed.horizontal()
          bg_clickable = clickable_container()
 
@@ -83,8 +86,8 @@ local function list_update(w, buttons, label, data, objects)
 
          -- And all of this gets a background
          bgb:set_widget(bg_clickable)
-
-         bgb:buttons(create_buttons(buttons, o))
+         
+	 bgb:buttons(create_buttons(buttons, o))
 
          data[o] = {
             ib = ib,
@@ -105,11 +108,14 @@ local function list_update(w, buttons, label, data, objects)
       end
 
       bgb:set_bgimage(bg_image)
+
+   
       if icon then
          ib.image = icon
       else
          ibm:set_margins(0)
       end
+  
 
       bgb.shape = args.shape
       bgb.shape_border_width = args.shape_border_width
@@ -161,7 +167,7 @@ tag_list.create = function(s)
       ),
       {},
       list_update,
-      wibox.layout.fixed.vertical()
+      wibox.layout.fixed.horizontal()
    )
 end
 

@@ -18,9 +18,9 @@ local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 
 local offsetx = dpi(56)
-local offsety = dpi(300)
+local offsety = dpi(360)
 local screen = awful.screen.focused()
-local icon_dir = gears.filesystem.get_configuration_dir() .. "/icons/volume/" .. beautiful.name .. "/"
+local icon_dir = gears.filesystem.get_configuration_dir() .. "/icons/volume/"
 
 
 -- ===================================================================
@@ -35,10 +35,10 @@ local volume_icon = wibox.widget {
 -- create the volume_adjust component
 local volume_adjust = wibox({
    screen = awful.screen.focused(),
-   x = screen.geometry.width - offsetx,
-   y = (screen.geometry.height / 2) - (offsety / 2),
-   width = dpi(48),
-   height = offsety,
+   x = (screen.geometry.width / 2) - (offsety / 2),
+   y = offsety,
+   width = offsety,
+   height = offsetx,
    shape = gears.shape.rounded_rect,
    visible = false,
    ontop = true
@@ -54,13 +54,13 @@ local volume_bar = wibox.widget{
 }
 
 volume_adjust:setup {
-   layout = wibox.layout.align.vertical,
+   layout = wibox.layout.align.horizontal,
    {
       wibox.container.margin(
-         volume_bar, dpi(14), dpi(20), dpi(20), dpi(20)
+         volume_bar, dpi(20), dpi(20), dpi(20), dpi(20)
       ),
       forced_height = offsety * 0.75,
-      direction = "east",
+      direction = "north",
       layout = wibox.container.rotate
    },
    wibox.container.margin(
