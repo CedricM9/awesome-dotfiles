@@ -18,6 +18,10 @@ local awful = require("awful")
 local beautiful = require("beautiful")
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
+-- Import Titlebars (Nice Titlebars)
+local nice = require("nice")
+nice()
+
 -- Import Keybinds
 local keys = require("keys")
 root.keys(keys.globalkeys)
