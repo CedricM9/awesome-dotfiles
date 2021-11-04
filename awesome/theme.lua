@@ -26,22 +26,39 @@ awesome.set_preferred_icon_size(64)
 
 -- Font
 theme.font = "SF Pro Text 9"
-theme.title_font = "SF Pro Display Medium 10"
+theme.top_bar_font = "SF Pro Text Regular 12"
+theme.title_font = "SF Pro Display Semibold 10"
 
 -- Background
-theme.bg_normal = "#1f2430"
+theme.bg_normal = "#dedede99"
+theme.bg_dark = "#bdbdbdff"
+theme.bg_focus = "#ffffff00"
+--theme.bg_focus = "#c3c3c3ff"
+theme.bg_urgent = "#ed8274"
+theme.bg_minimize = "#ffffffcc"
+--theme.bg_systray = theme.bg_normal
+
+--[[
+theme.bg_normal = "#1f2430CC"
 theme.bg_dark = "#000000"
 theme.bg_focus = "#151821"
 theme.bg_urgent = "#ed8274"
 theme.bg_minimize = "#444444"
 theme.bg_systray = theme.bg_normal
-
+--]]
+--
 -- Foreground
+theme.fg_normal = "#000000"
+theme.fg_focus = "#1b1b1b"
+theme.fg_urgent = "#000000"
+theme.fg_minimize = "#000000"
+--[[
 theme.fg_normal = "#ffffff"
 theme.fg_focus = "#e4e4e4"
 theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
-
+--]]
+--
 -- Window Gap Distance
 theme.useless_gap = dpi(20)
 
@@ -55,21 +72,21 @@ theme.border_focus = "#ff8a65"
 theme.border_marked = theme.fg_urgent
 
 -- Taglist
-theme.taglist_bg_empty = theme.bg_normal
-theme.taglist_bg_occupied = theme.bg_normal 
-theme.taglist_bg_urgent = theme.bg_normal
-theme.taglist_bg_focus = theme.bg_normal
+--theme.taglist_bg_empty = theme.bg_normal
+--theme.taglist_bg_occupied = theme.bg_normal 
+--theme.taglist_bg_urgent = theme.bg_normal
+--theme.taglist_bg_focus = theme.bg_normal
 
 -- Tasklist
 theme.tasklist_font = theme.font
 
-theme.tasklist_bg_normal = theme.bg_normal
-theme.tasklist_bg_focus = theme.bg_focus
-theme.tasklist_bg_urgent = theme.bg_urgent
+--theme.tasklist_bg_normal = theme.bg_normal
+--theme.tasklist_bg_focus = theme.bg_focus
+--theme.tasklist_bg_urgent = theme.bg_urgent
 
-theme.tasklist_fg_focus = theme.fg_focus
-theme.tasklist_fg_urgent = theme.fg_urgent
-theme.tasklist_fg_normal = theme.fg_normal
+--theme.tasklist_fg_focus = theme.fg_focus
+--theme.tasklist_fg_urgent = theme.fg_urgent
+--theme.tasklist_fg_normal = theme.fg_normal
 
 -- Panel Sizing
 theme.bottom_panel_height = dpi(48)
@@ -102,7 +119,7 @@ theme.titlebar_tooltips_enabled = true
 -- Icons
 -- ===================================================================
 
--- Icon Sise
+-- Top Bar Icon Sise
 theme.icon_size = dpi(7)
 
 -- You can use your own layout icons like this:

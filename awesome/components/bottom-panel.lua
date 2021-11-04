@@ -89,7 +89,7 @@ bottom_panel.create = function(s)
 
    -- maximize panel if client is maximized
    local function toggle_maximize_bottom_panel(is_maximized)
-      panel_bg.visible = is_maximized
+      panel_bg.visible = false
       if is_maximized then
          panel.shape = maximized_panel_shape
       else
