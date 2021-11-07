@@ -19,6 +19,8 @@ local abutton = awful.button
 local wibox = require("wibox")
 local get_font_height = require("beautiful").get_font_height
 local beautiful = require("beautiful")
+local xresources = require("beautiful.xresources")
+local dpi = xresources.apply_dpi
 -- Widgets
 local imagebox = wibox.widget.imagebox
 local textbox = wibox.widget.textbox
@@ -544,6 +546,8 @@ local function get_titlebar_item(c, name)
         return create_titlebar_button(
                    c, name, function()
                 c.floating = not c.floating
+                c.height = dpi(750)
+                c.width = dpi(1000)
                 if c.floating then c.maximized = false end
             end, "floating")
     elseif name == "sticky" then
