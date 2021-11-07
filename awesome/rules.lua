@@ -58,7 +58,8 @@ function rules.create(clientkeys, clientbuttons)
             },
             name = {
                "Event Tester",
-               "Steam Guard - Computer Authorization Required"
+               "Steam Guard - Computer Authorization Required",
+               "Power Manager",
             },
             role = {
                "pop-up",
