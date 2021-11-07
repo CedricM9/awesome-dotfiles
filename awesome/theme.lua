@@ -29,30 +29,28 @@ theme.font = "SF Pro Text 9"
 theme.top_bar_font = "SF Pro Text Regular 12"
 theme.title_font = "SF Pro Display Semibold 10"
 
--- Background
-theme.bg_normal = "#dedede99"
-theme.bg_dark = "#bdbdbdff"
+--[[ LIGHT
+theme.bg_normal = "#dedede"
+theme.bg_dark = "#bdbdbd"
 theme.bg_focus = "#ffffff00"
 --theme.bg_focus = "#c3c3c3ff"
 theme.bg_urgent = "#ed8274"
 theme.bg_minimize = "#ffffffcc"
 --theme.bg_systray = theme.bg_normal
+--
+theme.fg_normal = "#000000"
+theme.fg_focus = "#1b1b1b"
+theme.fg_urgent = "#000000"
+theme.fg_minimize = "#000000"
 
---[[
-theme.bg_normal = "#1f2430CC"
+-- DARK ]] 
+theme.bg_normal = "#1f2326f2"
 theme.bg_dark = "#000000"
 theme.bg_focus = "#151821"
 theme.bg_urgent = "#ed8274"
 theme.bg_minimize = "#444444"
 theme.bg_systray = theme.bg_normal
---]]
---
--- Foreground
-theme.fg_normal = "#000000"
-theme.fg_focus = "#1b1b1b"
-theme.fg_urgent = "#000000"
-theme.fg_minimize = "#000000"
---[[
+
 theme.fg_normal = "#ffffff"
 theme.fg_focus = "#e4e4e4"
 theme.fg_urgent = "#ffffff"
@@ -115,6 +113,7 @@ theme.titlebar_button_ontop = "#f6a2ed"
 theme.titlebar_button_sticky = "#f6a2ed"
 
 theme.titlebar_tooltips_enabled = true
+
 -- ===================================================================
 -- Icons
 -- ===================================================================
@@ -128,6 +127,16 @@ theme.layout_floating = "~/.config/awesome/icons/layouts/view-float.png"
 theme.layout_max = "~/.config/awesome/icons/layouts/arrow-expand-all.png"
 
 theme.icon_theme = "Tela-dark"
+
+-- ===================================================================
+-- Wallpaper 
+-- ===================================================================
+theme.wallpaper_1k = "~/.config/awesome/wallpaper/wallpaper-1k.png"
+theme.wallpaper_blurred_1k = "~/.config/awesome/wallpaper/wallpaper-blurred-1k.png"
+
+theme.wallpaper_4k = "~/.config/awesome/wallpaper/wallpaper-4k.png"
+theme.wallpaper_blurred_4k = "~/.config/awesome/wallpaper/wallpaper-blurred-1k.png"
+
 
 -- Return Theme
 return theme

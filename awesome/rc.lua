@@ -149,11 +149,14 @@ client.connect_signal("manage", function (c)
       -- Prevent clients from being unreachable after screen count changes.
       awful.placement.no_offscreen(c)
    end
+   --[[
     if (current_layout ~= awful.layout.suit.max) then
         c.shape = function(cr,w,h)
             gears.shape.rounded_rect(cr,w,h,20)
+       
         end
     end
+    --]]
 
 end)
 
