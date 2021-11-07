@@ -173,6 +173,13 @@ end
 
 local screen_geometry = awful.screen.focused().geometry
 
+-- Check Which Wallpaper to use dependent on the Screen Resolution
+if screen_geometry.x == 1920 then
+    local wallpaper = beautiful.wallpaper_blurred_1k
+else
+    local wallpaper = beautiful.wallpaper_blurred_4k
+end
+
 -- Create the widget
 exit_screen.widget = wibox({
    x = screen_geometry.x,
@@ -180,7 +187,7 @@ exit_screen.widget = wibox({
    visible = false,
    ontop = true,
    type = "splash",
-   bgimage = "/home/cedric/.config/awesome/wallpaper/blurredWallpaper2.png",
+   bgimage = wallpaper,
    height = screen_geometry.height,
    width = screen_geometry.width
 })
