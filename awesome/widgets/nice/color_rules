@@ -1,0 +1,15 @@
+return {
+-- Table: {1}
+{
+   ["deepin-system-monitor"]="#fcfcfc",
+   ["rofi"]="#1f2430ff",
+   ["rhythmbox"]="#37572f",
+   ["Alacritty"]="#212733ff",
+   ["blueman-manager"]="#1c1f22",
+   ["bitwarden"]="#1f2326",
+   ["org.gnome.Nautilus"]="#191c1e",
+   ["Navigator"]="#f0f0f4ff",
+   ["notion-app-enhanced"]="#2f3437",
+   ["xfce4-power-manager-settings"]="#191c1e",
+},
+}
