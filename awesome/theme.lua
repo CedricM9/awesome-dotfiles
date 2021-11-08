@@ -126,16 +126,16 @@ theme.layout_tile = "~/.config/awesome/icons/layouts/view-quilt.png"
 theme.layout_floating = "~/.config/awesome/icons/layouts/view-float.png"
 theme.layout_max = "~/.config/awesome/icons/layouts/arrow-expand-all.png"
 
-theme.icon_theme = "Tela-dark"
+theme.icon_theme = "Tela"
 
 -- ===================================================================
 -- Wallpaper 
 -- ===================================================================
-theme.wallpaper_1k = "~/.config/awesome/wallpaper/wallpaper-1k.png"
-theme.wallpaper_blurred_1k = "~/.config/awesome/wallpaper/wallpaper-blurred-1k.png"
+--theme.wallpaper_1k = "~/.config/awesome/wallpaper/wallpaper-1k.png"
+--theme.wallpaper_blurred_1k = "~/.config/awesome/wallpaper/wallpaper-blurred-1k.png"
 
-theme.wallpaper_4k = "~/.config/awesome/wallpaper/wallpaper-4k.png"
-theme.wallpaper_blurred_4k = "~/.config/awesome/wallpaper/wallpaper-blurred-1k.png"
+--theme.wallpaper_4k = "~/.config/awesome/wallpaper/wallpaper-4k.png"
+--theme.wallpaper_blurred_4k = "~/.config/awesome/wallpaper/wallpaper-blurred-1k.png"
 
 
 -- Return Theme

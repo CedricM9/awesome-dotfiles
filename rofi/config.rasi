@@ -10,7 +10,7 @@
 configuration {
 	font:							"Noto Sans Bold 10";
     show-icons:                     true;
-	icon-theme: 					"Tela manjaro";
+	icon-theme: 					"Tela";
     display-drun: 					"";
     drun-display-format:            "{name}";
     disable-history:                false;
