@@ -45,7 +45,7 @@ bottom_panel.create = function(s)
       screen = s,
       position = "bottom",
       height = beautiful.bottom_panel_height,
-      width = beautiful.bottom_panel_height * 6,
+      width = beautiful.bottom_panel_width,
       ontop = true,
       shape = panel_shape
    })
@@ -61,15 +61,19 @@ bottom_panel.create = function(s)
       nil
    }
 
+   --[[
    -- panel background that becomes visible when client is maximized
    panel_bg = wibox({
     screen = s,
-    position = "left",
-    height = s.geometry.height,
-    width = s.geometry.width,
-    visible = false
+    x = 0,
+    y = s.geometry.height - beautiful.bottom_panel_height,
+    --position = "bottom",
+    height = beautiful.bottom_panel_height,
+    width = s.geometry.width / 3,
+    visible = false,
+    ontop = true
     })
-
+--]]
  
   
    -- ===================================================================
@@ -89,11 +93,13 @@ bottom_panel.create = function(s)
 
    -- maximize panel if client is maximized
    local function toggle_maximize_bottom_panel(is_maximized)
-      panel_bg.visible = false
+      --panel_bg.visible = is_maximized
       if is_maximized then
          panel.shape = maximized_panel_shape
+         panel.width = s.geometry.width
       else
          panel.shape = panel_shape
+         panel.width = beautiful.bottom_panel_width
       end
    end
 
