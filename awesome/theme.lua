@@ -25,19 +25,17 @@ awesome.set_preferred_icon_size(64)
 
 
 -- Font
-theme.font = "SF Pro Text 9"
-theme.top_bar_font = "SF Pro Text Regular 12"
-theme.title_font = "SF Pro Display Semibold 10"
+theme.font = "Noto Sans Medium 9"
+theme.top_bar_font = "Noto Sans Bold 10"
+theme.title_font = "Noto Sans Medium 11"
 
 --[[ LIGHT
 theme.bg_normal = "#dedede"
 theme.bg_dark = "#bdbdbd"
 theme.bg_focus = "#ffffff00"
---theme.bg_focus = "#c3c3c3ff"
 theme.bg_urgent = "#ed8274"
 theme.bg_minimize = "#ffffffcc"
---theme.bg_systray = theme.bg_normal
---
+
 theme.fg_normal = "#000000"
 theme.fg_focus = "#1b1b1b"
 theme.fg_urgent = "#000000"
@@ -46,7 +44,7 @@ theme.fg_minimize = "#000000"
 -- DARK ]] 
 theme.bg_normal = "#1f2326f2"
 theme.bg_dark = "#000000"
-theme.bg_focus = "#151821"
+theme.bg_focus = "#1f2326f2"
 theme.bg_urgent = "#ed8274"
 theme.bg_minimize = "#444444"
 theme.bg_systray = theme.bg_normal
@@ -56,7 +54,8 @@ theme.fg_focus = "#e4e4e4"
 theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
 --]]
---
+
+
 -- Window Gap Distance
 theme.useless_gap = dpi(20)
 
@@ -88,6 +87,7 @@ theme.tasklist_font = theme.font
 
 -- Panel Sizing
 theme.bottom_panel_height = dpi(48)
+theme.bottom_panel_width = dpi(48) * 6
 theme.top_panel_height = dpi(26)
 
 -- Notification Sizing
