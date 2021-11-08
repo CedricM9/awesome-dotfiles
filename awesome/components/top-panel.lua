@@ -52,8 +52,8 @@ local top_panel = {}
 kbdcfg.widget.font = beautiful.title_font
 
 local volume_box = clickable_container(wibox.container.margin(volume_widget(), icon_size, icon_size, icon_size, icon_size))
-local calendar_box = clickable_container(wibox.container.margin(calendar, icon_size, icon_size, dpi(5), dpi(1)))
-local keyboard_box = clickable_container(wibox.container.margin(kbdcfg.widget, icon_size, icon_size, dpi(5), dpi(1)))
+local calendar_box = clickable_container(wibox.container.margin(calendar, icon_size, icon_size, -dpi(2), dpi(0)))
+local keyboard_box = clickable_container(wibox.container.margin(kbdcfg.widget, icon_size, icon_size, -dpi(1), dpi(1)))
 
 top_panel.create = function(s)
    local panel = awful.wibar({
