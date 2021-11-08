@@ -16,6 +16,7 @@ local gears = require("gears")
 local naughty = require("naughty")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
+local home_directory = os.getenv("HOME")
 
 -- Default Applications
 local apps = require("apps").default
@@ -244,7 +245,12 @@ keys.globalkeys = gears.table.join(
    -- Screenshot on prtscn using scrot
    awful.key({}, "Print",
       function()
-         awful.util.spawn(apps.screenshot, false)
+         awful.spawn("scrot " .. home_directory .. "/Desktop/%b%d-%H:%M.png")
+      end
+   ),
+   awful.key({modkey}, "i",
+      function()
+         awful.spawn("scrot " .. home_directory .. "/Desktop/%b%d-%H:%M.png")
       end
    ),
    awful.key({modkey}, "o",
