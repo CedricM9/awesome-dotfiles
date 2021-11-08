@@ -20,7 +20,7 @@
 <a name="details"></a>
 ## Details ##
 + **Shell**: ZSH
-+ **WM**: awesome
++ **WM**: AwesomeWM
 + **Icons**: Tela
 + **Cursor**: xCursor Breeze Light
 + **Terminal**: Alacritty
@@ -140,7 +140,7 @@ If you are new to awesomewm, note that tag refers to workspace, and client refer
 <a name="notes"></a>
 ## Notes ##
 + [Awesome API Documentation](https://awesomewm.org/apidoc/index.html)
-+ This configuration is based off of [WillPower3309's](https://github.com/WillPower3309)[awesome-dotfiles](https://github.com/WillPower3309/awesome-dotfiles) and borrows most of its code
++ This configuration is based off of [WillPower3309's](https://github.com/WillPower3309) [awesome-dotfiles](https://github.com/WillPower3309/awesome-dotfiles) and borrows most of its code
 + The Titlebars used are the [nice](https://github.com/mut-ex/awesome-wm-nice) Titlebars because they allow for color matching to a client
 + This configurations includes and makes use of the [treetile](https://github.com/guotsuan/awesome-treetile) layout in order to spawn clients to the right of the currently active client at all times
 + For the volume control widget, I modified the code from volume-widget which is a part of [awesome-wm-widgets](https://github.com/streetturtle/awesome-wm-widgets)
