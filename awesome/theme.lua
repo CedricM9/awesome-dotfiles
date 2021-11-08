@@ -131,11 +131,11 @@ theme.icon_theme = "Tela-dark"
 -- ===================================================================
 -- Wallpaper 
 -- ===================================================================
-theme.wallpaper_1k = "~/.config/awesome/wallpaper/wallpaper-1k.png"
-theme.wallpaper_blurred_1k = "~/.config/awesome/wallpaper/wallpaper-blurred-1k.png"
+--theme.wallpaper_1k = "~/.config/awesome/wallpaper/wallpaper-1k.png"
+--theme.wallpaper_blurred_1k = "~/.config/awesome/wallpaper/wallpaper-blurred-1k.png"
 
-theme.wallpaper_4k = "~/.config/awesome/wallpaper/wallpaper-4k.png"
-theme.wallpaper_blurred_4k = "~/.config/awesome/wallpaper/wallpaper-blurred-1k.png"
+--theme.wallpaper_4k = "~/.config/awesome/wallpaper/wallpaper-4k.png"
+--theme.wallpaper_blurred_4k = "~/.config/awesome/wallpaper/wallpaper-blurred-1k.png"
 
 
 -- Return Theme
