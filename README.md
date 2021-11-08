@@ -3,10 +3,10 @@
 </div>
 
 <div align="center">
-    <h3>Pastel Theme</h3>
+    <h3>Gallery</h3>
 </div>
 
-![](/screenshots/pastel.png)
+![](/screenshots/screenshot.png)
 
 ## Contents ##
 1. [Details](#details)
@@ -21,7 +21,7 @@
 ## Details ##
 + **Shell**: ZSH
 + **WM**: awesome
-+ **Icons**: Tela Dark
++ **Icons**: Tela
 + **Cursor**: xCursor Breeze Light
 + **Terminal**: Alacritty
 
@@ -41,7 +41,7 @@ These will improve the user experience but aren't required:
 
 |Dependency|Description|
 |:----------:|:-------------:|
-|`i3lock`|Will be opened when the lock icon is selected in the exit window|
+|`i3lock-color-git`|Will be opened when the lock icon is selected in the exit window|
 |`acpi`|Battery managing cli application, used by top bar widget to determine battery status|
 |`bluez` , `bluez-utils`|Bluetooth cli application, used by top bar widget to determine if bluetooth is on|
 |`blueman`|Bluetooth managing application, spawns when the bluetooth top panel icon is clicked|
@@ -51,16 +51,15 @@ These will improve the user experience but aren't required:
 |`sddm`|Display Manager that displays the login|
 
 ### Fonts You Should Install ###
-+ `SF Text`: System font used by macOS, iOS, and watchOS. Used in this config as the WM font. Also used as font for firefox
++ `Noto Sans`: System font. Used in this config as the WM font. Also used as font for firefox
 + [`MesloLGS`](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf): Terminal font, customized to work flawlessly with the zsh theme used, mentioned in the [application theming](#appTheming) section of the readme.
 
 <a name="installation"></a>
 ## Installation ##
 1. Ensure all [dependencies](#dependencies) are met
 2. Clone this repository and place its contents into your `.config` folder
-3. edit the `awesome/rc.lua` file to select your theme, and define your desired default and startup applications, as well as network interfaces
-4. navigate to the `awesome/wallpaper` folder and place your desired wallpaper there, ensuring that it is named either `wallpaper.jpg` if using the pastel theme, or `mirage.png` if using the mirage theme. Remember to delete the `blurredWallpaper` file in order to make the blurring script recognize a new wallpaper has been added and needs to be blurred 
-5. optional: edit the `keys.lua` file to change / add keybinds
+3. Define your desired default and startup applications (apps.lua), as well as network interfaces(widgets/network/init.lua)
+4. Navigate to the `awesome/wallpaper` folder and place your desired wallpaper there as well as well as a blurred version. Use the convert command to Blur an image (Can be found in components/wallpaper.lua)
 
 <a name="folderStructure"></a>
 ## Awesome Folder File Structure ##
@@ -68,40 +67,16 @@ In order to avoid a poorly organized `rc.lua` spanning thousands of lines, it ha
 + `rc.lua`: The main script that runs when awesome starts. Defines theme and default applications, and selects them
 + `keys.lua`: Contains keybinds
 + `rules.lua`: Contains window rules
-+ `pastel.lua`: Initializes the pastel theme (spawns all of the pastel theme components)
-+ `mirage.lua`: Initializes the mirage theme (spawns all of the mirage theme components)
-+ `themes`: Contains files with theme variables (ie colors, sizing, font, etc)
++ `theme.lua`: Contains theme variables (colors, sizing, font, etc)
 + `icons`: stores icons used in WM
 + `components`: Folder that contains all of the components of the WM, such as panels, volume and brightness sliders, notification pop-ups, etc
 + `configuration`: Contains theme-based config files for applications (ie rofi, picom, etc)
 + `widgets`: Stores widgets used in the functionality of the components
 + `wallpaper`: Where wallpaper and its blurred varient is generated / stored
-
-### Other cool applications you should install ###
-+ `redshift`: Changes screen warmth based on the time of day
-+ `neofetch`: Displays system information in the terminal
-+ `cmatrix`: Terminal base matrix text effect
++ [`treetile`](https://github.com/guotsuan/awesome-treetile): Contains a Repo to allow for the Treetiling Layout
 
 <a name="appTheming"></a>
 ## Application Theming ##
-### Firefox ###
-**Pastel**
-1. Set up [my custom Firefox theme](https://github.com/willpower3309/MinimalistMaterialFox)
-2. Use [this](https://github.com/Jaredk3nt/homepage) homepage
-3. Use `SF Text` font
-
-**Mirage**
-1. Set up the [blurredfox theme](https://github.com/manilarome/blurredfox)
-2. Replace the `colors/blurred.css` with the one found in this repo under `awesome/configuration/mirage/blurred.css`
-
-### Spotify ###
-1. [Install `Spicetify`](https://github.com/khanhas/spicetify-cli)
-2. chown spotify directory: `sudo chown $USER -R /opt/spotify`
-3. run `spicetify` once to generate config
-4. `spicetify backup apply enable-devtool` to enable devtools
-5. Copy my spicetify folder to `~/.config`
-6. run `spicetify update restart`
-
 ### Neovim ###
 1. Ensure the nvim folder from the repo has been copied into the `~/.config` directory
 2. Install VimPlug with
@@ -165,5 +140,8 @@ If you are new to awesomewm, note that tag refers to workspace, and client refer
 <a name="notes"></a>
 ## Notes ##
 + [Awesome API Documentation](https://awesomewm.org/apidoc/index.html)
-+ If you encounter any problems please open an issue in this repo and I will gladly investigate it
-+ If you would like to change the wallpaper, ensure that the wallpaper is named "wallpaper" and is located in the `~/.config/awesome` folder. Also ensure that you delete the blurred wallpaper file in order for the blurring script to recognize it needs to generate a new blurred wallpaper
++ This configuration is based off of [WillPower3309's](https://github.com/WillPower3309)[awesome-dotfiles](https://github.com/WillPower3309/awesome-dotfiles) and borrows most of its code
++ The Titlebars used are the [nice](https://github.com/mut-ex/awesome-wm-nice) Titlebars because they allow for color matching to a client
++ This configurations includes and makes use of the [treetile](https://github.com/guotsuan/awesome-treetile) layout in order to spawn clients to the right of the currently active client at all times
++ For the volume control widget, I modified the code from volume-widget which is a part of [awesome-wm-widgets](https://github.com/streetturtle/awesome-wm-widgets)
++ In order to close popup windows when clicked outside of them, I included [click_to_hide](https://bitbucket.org/grumph/home_config/src/master/.config/awesome/helpers/click_to_hide.lua)
