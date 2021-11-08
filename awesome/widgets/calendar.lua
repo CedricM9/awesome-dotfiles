@@ -38,8 +38,8 @@ awful.tooltip({
       return os.date("%B %d, %Y (%A)")
    end,
    preferred_positions = {"right", "left", "top", "bottom"},
-   margin_leftright = dpi(12),
-   margin_topbottom = dpi(12)
+   margin_leftright = dpi(14),
+   margin_topbottom = dpi(14)
 })
 
 local cal_shape = function(cr, width, height)

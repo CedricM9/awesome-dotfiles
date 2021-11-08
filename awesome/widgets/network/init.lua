@@ -80,8 +80,8 @@ local return_button = function()
 		mode = 'outside',
 		align = 'right',
 		preferred_positions = {'left', 'right', 'top', 'bottom'},
-		margin_leftright = dpi(8),
-		margin_topbottom = dpi(8)
+		margin_leftright = dpi(14),
+		margin_topbottom = dpi(14)
 	}
 
 	local check_internet_health = [=[

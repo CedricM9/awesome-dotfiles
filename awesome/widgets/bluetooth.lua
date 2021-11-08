@@ -60,7 +60,9 @@ awful.tooltip(
             return "Bluetooth is off"
          end
       end,
-      preferred_positions = {"right", "left", "top", "bottom"}
+      preferred_positions = {"right", "left", "top", "bottom"},
+      margin_leftright = dpi(14),
+      margin_topbottom = dpi(14)
    }
 )
 
