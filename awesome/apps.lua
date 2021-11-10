@@ -26,7 +26,7 @@ local apps = {}
 -- define default apps
 apps.default = {
    terminal = "alacritty",
-   launcher = "rofi -show drun -theme custom",
+   launcher = "rofi -show drun -theme config",
    lock = "i3lock -c 00000000 --blur 5",
    --screenshot = "scrot ~/Desktop/%b\ %d\ -\ %H:%M.png",
    filebrowser = "nautilus",
