@@ -60,7 +60,9 @@ local battery_popup = awful.tooltip({
    objects = {widget_button},
    mode = "outside",
    align = "left",
-   referred_positions = {"right", "left", "top", "bottom"}
+   referred_positions = {"right", "left", "top", "bottom"},
+   margin_leftright = dpi(14),
+   margin_topbottom = dpi(14)
 })
 
 local function show_battery_warning()
