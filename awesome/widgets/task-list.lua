@@ -120,7 +120,7 @@ local function list_update(w, buttons, label, data, objects)
             ib.image = icon
          else
 	    --TODO Create Default Icon and Change below	 
-	    ib.image = ICON_DIR .. "volume.png"
+	    ib.image = ICON_DIR .. "launcher.png"
          end
 
       bgb.shape = args.shape
