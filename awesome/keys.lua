@@ -175,6 +175,13 @@ keys.globalkeys = gears.table.join(
         end,
         {description = "Open Firefox", group = "launcher"}
     ),
+   
+    awful.key({modkey}, "u",
+        function()
+            awful.spawn("alacritty -e nvim -c :VimwikiIndex")
+        end,
+        {description = "Open Firefox", group = "launcher"}
+    ),
 
     awful.key({modkey}, "b",
         function()
