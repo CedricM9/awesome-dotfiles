@@ -38,15 +38,21 @@ apps.default = {
 local run_on_start_up = {
    "picom",
    "redshift",
-   'xinput set-prop "DLL08B0:01 06CB:CD7A Touchpad" "libinput Tapping Enabled" 1',
    "unclutter",
    "xfce4-power-manager",
    "bluez",
    "blueman",
    --"nm-applet",
-   'xinput set-prop "DLL08B0:01 06CB:CD7A Touchpad" "libinput Natural Scrolling Enabled" 1',
    'xinput set-prop "MX Master 2S Mouse" 174 0.6 0 0 0 0.6 0 0 0 1',
    'bluetoothctl power on'
+  
+    -- Thinkpad X1 Carbon Settings
+   'xinput set-prop 10 308 1',
+   'xinput set-prop 10 316 1',
+
+    -- XPS 13 Settings
+   'xinput set-prop "DLL08B0:01 06CB:CD7A Touchpad" "libinput Tapping Enabled" 1',
+   'xinput set-prop "DLL08B0:01 06CB:CD7A Touchpad" "libinput Natural Scrolling Enabled" 1',
 }
 
 
