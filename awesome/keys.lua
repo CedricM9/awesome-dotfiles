@@ -300,6 +300,13 @@ keys.globalkeys = gears.table.join(
       end,
       {description = "toggle exit screen", group = "hotkeys"}
    ),
+   
+   -- Suspend 
+   awful.key({modkey}, "[",
+      function()
+        awful.spawn.with_shell(apps.lock .. " & systemctl suspend")
+      end
+   ),
 
    -- =========================================
    -- CLIENT FOCUSING
