@@ -38,6 +38,7 @@ apps.default = {
 local run_on_start_up = {
    "picom",
    "redshift",
+   "solaar",
    "unclutter",
    "xfce4-power-manager",
    "bluez",
